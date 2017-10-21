@@ -1,0 +1,106 @@
+{
+    "result_format": "nlu_interpretation_results",
+    "nlu_interpretation_results": {
+        "payload": {
+            "type": "nlu-1.0",
+            "interpretations": [
+                {
+                    "concepts": {
+                        "CoffeeSize": [
+                            {
+                                "ranges": [
+                                    [
+                                        4,
+                                        9
+                                    ]
+                                ],
+                                "value": "sm",
+                                "literal": "small"
+                            }
+                        ]
+                    },
+                    "action": {
+                        "intent": {
+                            "value": "WelcomeIntent",
+                            "confidence": 0.8800000000000001
+                        }
+                    },
+                    "literal": "Looks like you are having issues with water appearance."
+                }
+            ],
+            "diagnostic_info": {
+                "nlu_version": "[Version: nlps-eng-USA-QUICKNLU;Label;7935_NLPS_1;Model;7e4ae778-acb7-11e7-a4b3-b1e246862402;Build;7601b097-acc0-11e7-a4b3-41cdf5269641;QnluTrain;1.16.9;CreatedAt;2017-10-09T07:06:59.000Z]",
+                "context_tag": "M7935_A2981_V1",
+                "nlps_profile": "QUICKNLUDYN",
+                "nlu_use_literal_annotator": "0",
+                "qws_project_id": "a3c8ff68dd5cdd102524c632d0934541ec8cf16490a62ac3",
+                "application": "NMDPTRIAL_pourab_karchaudhuri_gmail_com20170810000801",
+                "ext_map_time": "0",
+                "int_map_time": "0",
+                "adk_dialog_manager_status": "undefined",
+                "nlu_language": "eng-USA",
+                "nlps_host": "nlpsdy-pool-1-lqnv6:8636",
+                "nlps_nlu_type": "quicknludynamic",
+                "nlps_version": "nlps(z):6.4.100.9.1-B135;Version: nlps-base-Zeppelin-6.4.100-B00-GMT20170626154735;",
+                "third_party_delay": "4",
+                "fieldId": "dm_main",
+                "nlps_ip": "172.17.136.2",
+                "nlps_profile_package_version": "nlps(z):6.4.100.9.1-B135",
+                "nlu_annotator": "urn:analysisEngineDescription:quicknlu?serverURL=http%3A%2F%2Flocalhost%3A8088%2Fserver",
+                "nmaid": "NMDPTRIAL_pourab_karchaudhuri_gmail_com20170810000801",
+                "nlps_profile_package": "QUICKNLU"
+            }
+        },
+        "payload_format": "nlu-base",
+        "payload_version": "1.0",
+        "status": "success",
+        "final_response": 1
+    },
+    "message": "query_response",
+    "final_response": 1,
+    "result_type": "NDSP_APP_CMD",
+    "NMAS_PRFX_TRANSACTION_ID": "8",
+    "transaction_id": 8,
+    "NMAS_PRFX_SESSION_ID": "e99687a1-6294-4b8b-8cb5-f602d53d1240"
+}
+
+
+
+
+
+
+{
+    "id": "a53a9134-4280-498c-b85f-c4c5edd76ccb",
+    "timestamp": "2017-10-20T05:10:38.941Z",
+    "lang": "en",
+    "result": {
+        "source": "agent",
+        "resolvedQuery": "hi",
+        "action": "input.welcome",
+        "actionIncomplete": false,
+        "parameters": {},
+        "contexts": [],
+        "metadata": {
+            "intentId": "6e35b4ec-7a6a-4ff5-b09f-eb230916cdb8",
+            "webhookUsed": "false",
+            "webhookForSlotFillingUsed": "false",
+            "intentName": "Default Welcome Intent"
+        },
+        "fulfillment": {
+            "speech": "Looks like you are having issues with water appearance. Please help me by choosing one of the exact issue from below.",
+            "messages": [
+                {
+                    "type": 0,
+                    "id": "ef4b6540-394a-4704-b78b-082b2d144660",
+                    "speech": "Looks like you are having issues with water appearance. Please help me by choosing one of the exact issue from below."
+                }
+            ]
+        },
+        "score": 1
+    },
+    "status": {
+        "code": 200,
+        "errorType": "success"
+    },
+    "sessionId": "8ea998a5-8dfd-4581-adbb-a71d8ee91cd8"
+}
