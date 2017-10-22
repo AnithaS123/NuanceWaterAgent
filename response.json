@@ -26,8 +26,56 @@
                         }
                     },
                     "literal": "Looks like you are having issues with water appearance."
+                },
+                   {
+                    "concepts": {
+                        "CoffeeSize": [
+                            {
+                                "ranges": [
+                                    [
+                                        4,
+                                        9
+                                    ]
+                                ],
+                                "value": "sm",
+                                "literal": "small"
+                            }
+                        ]
+                    },
+                    "action": {
+                        "intent": {
+                            "value": "ThankIntent",
+                            "confidence": 0.8800000000000001
+                        }
+                    },
+                    "literal": "Ok, Good bye, see you latter"
+                },
+                   {
+                    "concepts": {
+                        "CoffeeSize": [
+                            {
+                                "ranges": [
+                                    [
+                                        4,
+                                        9
+                                    ]
+                                ],
+                                "value": "sm",
+                                "literal": "small"
+                            }
+                        ]
+                    },
+                    "action": {
+                        "intent": {
+                            "value": "WaterColor",
+                            "confidence": 0.8800000000000001
+                        }
+                    },
+                    "literal": "I have to give some words"
                 }
             ],
+
+            
             "diagnostic_info": {
                 "nlu_version": "[Version: nlps-eng-USA-QUICKNLU;Label;7935_NLPS_1;Model;7e4ae778-acb7-11e7-a4b3-b1e246862402;Build;7601b097-acc0-11e7-a4b3-41cdf5269641;QnluTrain;1.16.9;CreatedAt;2017-10-09T07:06:59.000Z]",
                 "context_tag": "M7935_A2981_V1",

@@ -192,6 +192,20 @@
                                 <i class='fa fa-microphone'></i> <span id='asr_label'>RECORD</span>
                             </button>
                         </div>
+
+                        <div class='panel-body'>
+                            <form class='form' role='form' onsubmit="$('#tts_go').click();return false;">
+                                <div class='form-group'>
+                                    <textarea id="tts_text" class='form-control textarea' placeholder='Text to synthesize' rows='12'></textarea>
+                                </div>
+                                <div class='form-group'>
+                                    <button id='tts_go' type='button' class='btn btn-primary btn-block'>
+                                        <i class='fa fa-comment'></i> SPEAK
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
                         <div id='asr_debug_output' class='panel-body'></div>
                     </div>
                 </div>

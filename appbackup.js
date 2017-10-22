@@ -68,8 +68,7 @@
     var $nluDebug = $('#nlu_debug_output');
     var $asrVizCtx = $asrViz.get()[0].getContext('2d');
     var $showHideToggle = $('#show-hide-credentials');
-    var rectextresults =null;
-    var IsWebSocketclose =false;
+
     // Anitha nuance try
     let welcomeIntent = $('#welcome_Intent');
 
@@ -93,7 +92,6 @@
             $content.addClass('connected');
         },
         onclose: function () {
-            IsWebSocketclose=true;
             console.log("Websocket Closed");
             $content.removeClass('connected');
         },
@@ -102,7 +100,6 @@
         },
         onresult: function (msg) {
             LOG(msg, 'in');
-           // console.log('------ result-----');
             console.log(msg);
             if (msg.result_type === "NMDP_TTS_CMD" || msg.result_type === "NVC_TTS_CMD") {
                 dLog(JSON.stringify(msg, null, 2), $ttsDebug);
@@ -110,31 +107,31 @@
             } else if (msg.result_type === "NVC_ASR_CMD") {
                 dLog(JSON.stringify(msg, null, 2), $asrDebug);
             } else if (msg.result_type == "NDSP_ASR_APP_CMD") {
-               
+                debugger;
                 if (msg.result_format === "nlu_interpretation_results") {
                     try {
                         dLog("interpretations = " + JSON.stringify(msg.nlu_interpretation_results.payload.interpretations, null, 2), $asrDebug);
 
                         // try Anitha Nuance
-                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal.toLowerCase() === 'hi' || msg.nlu_interpretation_results.payload.interpretations[0].literal === 'hello' || msg.nlu_interpretation_results.payload.interpretations[0].literal === 'getting started' || msg.nlu_interpretation_results.payload.interpretations[0].literal === 'hey') {
+                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal === 'Hi' || msg.nlu_interpretation_results.payload.interpretations[0].literal === 'hello' || msg.nlu_interpretation_results.payload.interpretations[0].literal === 'getting started' || msg.nlu_interpretation_results.payload.interpretations[0].literal === 'hey') {
                             // response has to bind
-                            rectextresults = "Looks like you are having issues with water appearance.";
+
                             console.log("Looks like you are having issues with water appearance.");
                         }
-                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal.toLowerCase() === 'blue discoloration') {  //Blue discoloration
+                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal === 'Blue Discolouration') {
                             // response has to bind
-                            rectextresults = "If your water is blue, please don’t drink the water or use it for cooking purposes.";
+
                             console.log("If your water is blue, please don’t drink the water or use it for cooking purposes.");
                         }
-                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal.toLowerCase() === 'milky discoloration') {
+                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal === 'Milky Discolouration') {
                             // response has to bind
-                            rectextresults = "Cloudy or milky water caused by air is perfectly safe to drink and use.";
+
                             console.log("Cloudy or milky water caused by air is perfectly safe to drink and use.");
                         }
-                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal.toLowerCase() === 'thank you') {
+                        if (msg.nlu_interpretation_results.payload.interpretations[0].literal === 'Thank you') {
                             // response has to bind
-                            rectextresults="Ok bye, seee you later";
-                            console.log("Ok bye, seee you later");
+
+                            console.log("Ok bye, seee you latter");
                         }
                         // ---------------------
 
@@ -145,13 +142,7 @@
                         dLog(JSON.stringify(msg, null, 2), $asrDebug, true);
                     }
                 } else {
-
-                    // if (msg.result_format === "rec_text_results") {
-                    //     console.log('rec_text_results');
-                    //     console.log(msg.transcriptions);
-                    //     rectextresults = msg.transcriptions[0];
-                    // }
-                    //dLog(JSON.stringify(msg, null, 2), $asrDebug);
+                    dLog(JSON.stringify(msg, null, 2), $asrDebug);
                 }
                 $nluExecute.prop('disabled', false);
             } else if (msg.result_type === "NDSP_APP_CMD") {
@@ -272,32 +263,8 @@
 
     function asr(evt) {
         if (isRecording) {
-            Nuance.stopASR()
+            Nuance.stopASR();
             $asrLabel.text('RECORD');
-            console.log('asr click---');
-          //  console.log(rectextresults);
-            
-            // var p =  Promise.all().then(function(response){
-var intervaltime = setInterval(function(){
-    if(IsWebSocketclose){
-        IsWebSocketclose=false;
-        clearInterval(intervaltime);
-        // console.log('set interval')
-        // console.log(rectextresults)
-        var options = createOptions({
-            language: $language.val(),
-            voice: TTS_VOICE,
-            text: rectextresults                          
-        });
-        Nuance.playTTS(options);
-     }
-},1000);
-             
-                
-            // });
-            
-           // return p;
-
         } else {
             cleanViz();
             var options = createOptions({

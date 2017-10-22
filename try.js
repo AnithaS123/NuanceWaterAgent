@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
 
-fs.readFile('./response.json', 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  console.log(data);
-});
+// fs.readFile('./response.json', 'utf8', function (err,data) {
+//   if (err) {
+//     return console.log(err);
+//   }
+//   console.log(data);
+// });
 
 
 
